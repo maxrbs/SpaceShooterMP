@@ -199,7 +199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.30100003, y: 0.70729625}
   m_AnchorMax: {x: 0.7007106, y: 0.7814074}
-  m_AnchoredPosition: {x: -0.4995575, y: -0.32998657}
+  m_AnchoredPosition: {x: -0.49954224, y: -0.32995605}
   m_SizeDelta: {x: 1.2622681, y: 0.43769836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &196024585
@@ -475,7 +475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.29464474, y: 0.437}
   m_AnchorMax: {x: 0.7057106, y: 0.4935185}
-  m_AnchoredPosition: {x: 0.000076293945, y: 0}
+  m_AnchoredPosition: {x: 0.000091552734, y: 0}
   m_SizeDelta: {x: 0.2055664, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &473747749
@@ -901,7 +901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.29464474, y: 0.52400005}
   m_AnchorMax: {x: 0.7057106, y: 0.5797037}
-  m_AnchoredPosition: {x: 0.000076293945, y: 0.19999695}
+  m_AnchoredPosition: {x: 0.000091552734, y: 0.19999695}
   m_SizeDelta: {x: 0.2055664, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600575043
@@ -1266,6 +1266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700277108}
   - component: {fileID: 700277107}
+  - component: {fileID: 700277109}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -1300,6 +1301,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &700277109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700277106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d870e594571e0914b817b786eaebe2a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsCounter: {fileID: 678826266}
 --- !u!1 &701806944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1740,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aacf72fc3625c1c429a89db3073a68f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6191ed22082753e4baf9e24a16828cb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -21,7 +21,7 @@ public class MoveComponent : MonoBehaviour
     {
         rigidbodyComponent = GetComponent<Rigidbody2D>();
         animatorComponent = GetComponent<Animator>();
-        moveJoystick = FindObjectOfType<MoveJoystick>();    // заменить на ченить более надежное
+        moveJoystick = FindObjectOfType<MoveJoystick>();
 
     }
 

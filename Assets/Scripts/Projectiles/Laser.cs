@@ -20,8 +20,6 @@ public class Laser : ProjectileBase
     {
         if (collision.gameObject.TryGetComponent(out HealthComponent hpComponent))
             hpComponent.ApplyDamage(damage);
-        else
-            print("no");
 
         PerformExplosion();
         
