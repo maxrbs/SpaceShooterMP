@@ -15,11 +15,12 @@ public class WeaponComponent : MonoBehaviour
 
     private void Start()
     {
-        aimJoystick = FindObjectsOfType<Joystick>()[0];
+        aimJoystick = FindObjectOfType<AimJoystick>();
     }
 
     private void Update()
     {
+        //if (!isOwner) return;
         if (!IsCanAim) return; 
         
 

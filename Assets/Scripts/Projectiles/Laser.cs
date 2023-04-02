@@ -6,17 +6,18 @@ using UnityEngine;
 //[RequireComponent(typeof(Rigidbody2D))]
 public class Laser : MonoBehaviour
 {
+    [SerializeField] private float damage;
     [SerializeField] private float moveSpeed;
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private float lifeTime;
-
-    //private Rigidbody2D rigidbodyComponent;
+    
+    private Rigidbody2D rigidbodyComponent;
 
     private void Start()
     {
-        //rigidbodyComponent = GetComponent<Rigidbody2D>();
+        rigidbodyComponent = GetComponent<Rigidbody2D>();
 
-        Destroy(this, lifeTime);
+        Destroy(gameObject, lifeTime);
     }
 
     private void Update()
@@ -29,6 +30,13 @@ public class Laser : MonoBehaviour
         //GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         //explosion.transform.parent = null;
         //Destroy(explosion, 10f);
-        //Destroy(this);
+        GameObject collisionedObject = collision.gameObject;
+        print(collisionedObject.name);
+        if (collisionedObject.TryGetComponent(out HealthComponent hpComponent))
+        {
+            hpComponent.ApplyDamage(damage);
+        }
+
+        Destroy(gameObject);
     }
 }

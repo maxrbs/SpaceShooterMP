@@ -8,7 +8,9 @@ public class MoveComponent : MonoBehaviour
 {
     public bool IsCanMove;
     
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float deceleration;
+    [SerializeField] private float maxSpeed;
 
     private Rigidbody2D rigidbodyComponent;
     private Animator animatorComponent;
@@ -19,7 +21,7 @@ public class MoveComponent : MonoBehaviour
     {
         rigidbodyComponent = GetComponent<Rigidbody2D>();
         animatorComponent = GetComponent<Animator>();
-        moveJoystick = FindObjectsOfType<Joystick>()[1];    // заменить на ченить более надежное
+        moveJoystick = FindObjectOfType<MoveJoystick>();    // заменить на ченить более надежное
 
     }
 
@@ -32,16 +34,13 @@ public class MoveComponent : MonoBehaviour
         if (moveJoystick.Direction.sqrMagnitude > moveJoystick.DeadZone * moveJoystick.DeadZone)
         {
             Vector2 direction = moveJoystick.Direction;
-            
-            //Vector3 velocity = rigidbodyComponent.velocity;
-            //velocity.x += direction.x * moveSpeed * Time.deltaTime;
-            //velocity.y += direction.y * moveSpeed * Time.deltaTime;
 
-            //rigidbodyComponent.velocity = velocity;
-            rigidbodyComponent.velocity += direction * moveSpeed * Time.deltaTime;
+            rigidbodyComponent.velocity = Vector2.ClampMagnitude(rigidbodyComponent.velocity + direction * acceleration * Time.deltaTime, maxSpeed);
 
-            //animatorComponent.SetFloat("Speed", direction.magnitude);
-
+        }
+        else
+        {
+            rigidbodyComponent.velocity = Vector2.Lerp(rigidbodyComponent.velocity, Vector2.zero, deceleration * Time.deltaTime); 
         }
     }
 
