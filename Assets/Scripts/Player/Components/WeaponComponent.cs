@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class WeaponComponent : MonoBehaviour
@@ -8,14 +10,18 @@ public class WeaponComponent : MonoBehaviour
 
     [SerializeField] private GameObject ammoPrefab;
     [SerializeField] private float shotsDelay;
-    [SerializeField] private Transform ammoSpawnPoint;
+    [SerializeField] private Transform ammoSpawnPointsContainer;
+
+    public UnityEvent OnShoot;
 
     private Joystick aimJoystick;
+    private int nextSpawnPointIndex;
     private float lastShotTime;
 
     private void Start()
     {
         aimJoystick = FindObjectOfType<AimJoystick>();
+        nextSpawnPointIndex = 0;
     }
 
     private void Update()
@@ -46,8 +52,19 @@ public class WeaponComponent : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bullet = Instantiate(ammoPrefab, ammoSpawnPoint.position, ammoSpawnPoint.rotation);
+        Transform spawnTransform = ammoSpawnPointsContainer.GetChild(nextSpawnPointIndex);
+        GameObject bullet = Instantiate(ammoPrefab, spawnTransform.position, spawnTransform.rotation);
+        UpdateNextSpawnPoint();
+
         lastShotTime = Time.time;
+
+        OnShoot.Invoke();
     }
 
+    private void UpdateNextSpawnPoint()
+    {
+        nextSpawnPointIndex++;
+        if (nextSpawnPointIndex >= ammoSpawnPointsContainer.childCount)
+            nextSpawnPointIndex = 0;
+    }
 }

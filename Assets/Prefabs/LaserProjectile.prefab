@@ -94,11 +94,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1e773c937dd1949bcd358a6a735d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  pushForce: 3
   moveSpeed: 3
-  explosionEffect: {fileID: 0}
   lifeTime: 5
+  OnTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  pushForce: 3
+  OnPush:
+    m_PersistentCalls:
+      m_Calls: []
+  damage: 10
+  explosionEffect: {fileID: 0}
 --- !u!1 &6418350583322883269
 GameObject:
   m_ObjectHideFlags: 0

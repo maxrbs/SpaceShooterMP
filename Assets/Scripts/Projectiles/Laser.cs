@@ -6,7 +6,7 @@ public class Laser : PushableProjectileBase
 {
     [SerializeField] private float damage;
     [SerializeField] private GameObject explosionEffect;
-    
+
     public void PerformExplosion()
     {
         //GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
