@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private WeaponComponent weaponComponent;
     [SerializeField] private HealthComponent healthComponent;
     [SerializeField] private CollectorComponent collectorComponent;
-    
 
-    private void Update()
+    [SerializeField] private PlayerTag playerTag;
+
+    private void Start()
     {
-        
+        // пока так, потом на OnSpawn
+        playerTag.SetName(PlayerName);
     }
+
 }
