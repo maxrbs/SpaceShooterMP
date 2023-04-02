@@ -8,6 +8,10 @@ public class CollectableCoin : CollectableBase
     protected override void TryCollect(GameObject collidedObject)
     {
         if (collidedObject.TryGetComponent(out CollectorComponent collector))
+        {
             collector.AddCoins(1);
+
+            Destroy(gameObject);
+        }
     }
 }

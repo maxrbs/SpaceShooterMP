@@ -13,7 +13,6 @@ public abstract class CollectableBase : MonoBehaviour
         TryCollect(collision.gameObject);
 
         PerformCollectEffect();
-        Destroy(gameObject);
     }
 
     protected abstract void TryCollect(GameObject collidedObject);
