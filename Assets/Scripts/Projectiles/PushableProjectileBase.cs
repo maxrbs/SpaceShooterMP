@@ -9,7 +9,7 @@ public abstract class PushableProjectileBase : ProjectileBase
 
     public UnityEvent OnPush;
 
-    protected void PerformPush(Collision collision)
+    protected void PerformPush(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Rigidbody2D rbComponent))
             rbComponent.AddForce(Vector3.up * pushForce, ForceMode2D.Impulse);

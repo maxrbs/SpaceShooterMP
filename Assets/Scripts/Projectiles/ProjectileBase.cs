@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
 public abstract class ProjectileBase : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
@@ -23,13 +21,13 @@ public abstract class ProjectileBase : MonoBehaviour
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         PerformTouch(collision);
 
         OnTouch.Invoke();
     }
 
-    protected abstract void PerformTouch(Collision collision);
+    protected abstract void PerformTouch(Collision2D collision);
 
 }

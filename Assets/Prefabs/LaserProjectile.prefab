@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1e773c937dd1949bcd358a6a735d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 7
   lifeTime: 5
   OnTouch:
     m_PersistentCalls:
@@ -103,7 +103,7 @@ MonoBehaviour:
   OnPush:
     m_PersistentCalls:
       m_Calls: []
-  damage: 10
+  damage: 20
   explosionEffect: {fileID: 0}
 --- !u!1 &6418350583322883269
 GameObject:

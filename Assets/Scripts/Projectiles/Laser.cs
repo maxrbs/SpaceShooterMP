@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : PushableProjectileBase
+public class Laser : ProjectileBase
 {
     [SerializeField] private float damage;
     [SerializeField] private GameObject explosionEffect;
@@ -16,12 +16,12 @@ public class Laser : PushableProjectileBase
         
     }
 
-    protected override void PerformTouch(Collision collision)
+    protected override void PerformTouch(Collision2D collision)
     {
-        PerformPush(collision);
-
         if (collision.gameObject.TryGetComponent(out HealthComponent hpComponent))
             hpComponent.ApplyDamage(damage);
+        else
+            print("no");
 
         PerformExplosion();
         
