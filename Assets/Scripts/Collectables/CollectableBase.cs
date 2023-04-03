@@ -1,27 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public abstract class CollectableBase : MonoBehaviour
 {
     [SerializeField] private GameObject collectEffect;
 
+    public UnityEvent OnCollect;
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {        
         TryCollect(collision.gameObject);
 
-        PerformCollectEffect();
+        OnCollect.Invoke();
     }
 
     protected abstract void TryCollect(GameObject collidedObject);
 
-    private void PerformCollectEffect()
-    {
-        //GameObject effect = Instantiate(collectEffect, transform.position, Quaternion.identity);
-        //effect.transform.parent = null;
-
-        //Destroy(effect, 5f);
-    }
 }
