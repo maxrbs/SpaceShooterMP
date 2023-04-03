@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1603774, g: 0.0506853, b: 0.08658063, a: 0.7960784}
+  m_Color: {r: 0.24528301, g: 0.068262726, b: 0.19081368, a: 0.7960784}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 1134735661609864463}
   - component: {fileID: 242575983}
   m_Layer: 5
-  m_Name: PopUP
+  m_Name: MessagePopUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
