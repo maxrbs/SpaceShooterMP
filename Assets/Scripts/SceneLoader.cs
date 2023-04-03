@@ -8,6 +8,12 @@ public class SceneLoader : MonoBehaviour
     private Animator splashScreenAnimator;
     private string nextSceneName;
 
+    private void Awake()
+    {
+        splashScreenAnimator = GetComponent<Animator>();
+        BrightenScreen();
+    }
+
     public void LoadScene(string sceneName)
     {
         nextSceneName = sceneName;
@@ -24,14 +30,13 @@ public class SceneLoader : MonoBehaviour
         splashScreenAnimator.Play("Hide");
     }
 
-    private void Awake()
-    {
-        splashScreenAnimator = GetComponent<Animator>();
-        BrightenScreen();
-    }
-
     private void StartLoadingScene()
     {
         SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void LoadExitGame()
+    {
+        Application.Quit();
     }
 }
