@@ -33,6 +33,7 @@ public class PopUpObject : MonoBehaviour
 
         isActive = false;
         animatorComponent.Play("Close");
+        StopAllCoroutines();
     }
 
     private IEnumerator CloseWithDelay(float seconds)
