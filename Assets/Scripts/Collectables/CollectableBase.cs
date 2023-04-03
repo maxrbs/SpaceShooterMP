@@ -6,8 +6,6 @@ using UnityEngine.Events;
 [RequireComponent(typeof(BoxCollider2D))]
 public abstract class CollectableBase : MonoBehaviour
 {
-    [SerializeField] private GameObject collectEffect;
-
     public UnityEvent OnCollect;
 
     private void OnCollisionEnter2D(Collision2D collision)

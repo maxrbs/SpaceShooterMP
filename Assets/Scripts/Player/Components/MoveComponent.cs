@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 public class MoveComponent : MonoBehaviour
 {
     public bool IsCanMove;
@@ -13,14 +12,12 @@ public class MoveComponent : MonoBehaviour
     [SerializeField] private float maxSpeed;
 
     private Rigidbody2D rigidbodyComponent;
-    private Animator animatorComponent;
     private Joystick moveJoystick;
 
 
     private void Start()
     {
         rigidbodyComponent = GetComponent<Rigidbody2D>();
-        animatorComponent = GetComponent<Animator>();
         moveJoystick = FindObjectOfType<MoveJoystick>();
 
     }
