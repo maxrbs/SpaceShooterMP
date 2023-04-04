@@ -55,22 +55,24 @@ public class WeaponComponent : NetworkBehaviour
     {
         SpawnBulletServerRpc();
 
-        UpdateNextSpawnPoint();
+        UpdateNextSpawnPointServerRpc();
 
         lastShotTime = Time.time;
 
         OnShoot.Invoke();
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void SpawnBulletServerRpc()
     { 
         Transform spawnTransform = ammoSpawnPointsContainer.GetChild(nextSpawnPointIndex);
         GameObject bullet = Instantiate(ammoPrefab, spawnTransform.position, spawnTransform.rotation);
+
         bullet.GetComponent<NetworkObject>().Spawn();
     }
 
-    private void UpdateNextSpawnPoint()
+    [ServerRpc(RequireOwnership = false)]
+    private void UpdateNextSpawnPointServerRpc()
     {
         nextSpawnPointIndex++;
         if (nextSpawnPointIndex >= ammoSpawnPointsContainer.childCount)

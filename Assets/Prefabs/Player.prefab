@@ -10398,7 +10398,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4290879810430714423}
-  - component: {fileID: 4290879810430714421}
   - component: {fileID: 4290879810430714430}
   - component: {fileID: 4290879810430714417}
   - component: {fileID: 4290879810430714419}
@@ -10409,7 +10408,6 @@ GameObject:
   - component: {fileID: 789960205225303468}
   - component: {fileID: 6237983044530782232}
   - component: {fileID: 7757379598023611603}
-  - component: {fileID: 5452504302526227204}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -10437,26 +10435,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4290879810430714421
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4290879810430714422}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &4290879810430714430
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10516,12 +10494,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8287e2905fec58043808cc3a462e9b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName: maxrbs5385
   moveComponent: {fileID: 4290879810430714420}
   weaponComponent: {fileID: 4290879810430714416}
   healthComponent: {fileID: 4290879810430714431}
   collectorComponent: {fileID: 4290879810430714428}
   playerTag: {fileID: 4290879810375574390}
+  spawnRange: 3
 --- !u!114 &4290879810430714420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10581,7 +10559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdc57f0821557943b66ceacac0f852d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 80
+  hp: 100
   maxHP: 100
   OnDamage:
     m_PersistentCalls:
@@ -10649,7 +10627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05916276f430f48458008dfd567f6bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsCount: 0
+  coinsCount:
+    m_InternalValue: 0
   OnCoinCollect:
     m_PersistentCalls:
       m_Calls:
@@ -10719,20 +10698,6 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
---- !u!114 &5452504302526227204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4290879810430714422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ce576e4f04fc1439630b8a15d575b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TransitionStateInfoList: []
-  m_Animator: {fileID: 4290879810430714421}
 --- !u!1 &4290879810509115964
 GameObject:
   m_ObjectHideFlags: 0
@@ -10757,7 +10722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4290879810509115964}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.19599998, y: 0.3, z: -0.012352394}
+  m_LocalPosition: {x: 0.25, y: 0.25, z: -0.012352394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11226,7 +11191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4290879812058159463}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.196, y: -0.3, z: -0.012352394}
+  m_LocalPosition: {x: 0.25, y: -0.25, z: -0.012352394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

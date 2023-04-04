@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using Unity.Netcode;
 using UnityEngine.UI;
 
-public class CollectorComponent : MonoBehaviour
+public class CollectorComponent : NetworkBehaviour
 {
-    [SerializeField] private int coinsCount;
+    [SerializeField] private NetworkVariable<int> coinsCount = new NetworkVariable<int>(
+            0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     public UnityEvent OnCoinCollect;
 
@@ -20,21 +22,26 @@ public class CollectorComponent : MonoBehaviour
 
     public void AddCoins(int count)
     {
-        coinsCount += Mathf.Abs(count);
+        coinsCount.Value += Mathf.Abs(count);
 
         OnCoinCollect.Invoke();
     }
 
     public void RemoveCoins(int count)
     {
-        coinsCount -= Mathf.Abs(count);
+        coinsCount.Value -= Mathf.Abs(count);
 
-        if (coinsCount < 0)
-            coinsCount = 0;
+        if (coinsCount.Value < 0)
+            coinsCount.Value = 0;
     }
 
     public void UpdateCoinsCountOnUI()
     {
-        hudUpdater.SetCoinsCount(coinsCount);
+        hudUpdater.SetCoinsCount(coinsCount.Value);
+    }
+
+    public int GetCoinsCount()
+    {
+        return coinsCount.Value;
     }
 }
