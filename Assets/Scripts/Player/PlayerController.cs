@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public string PlayerName;
     
@@ -13,9 +14,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private PlayerTag playerTag;
 
-    private void Start()
+
+    [SerializeField] private float spawnRange = 3f;
+
+    public override void OnNetworkSpawn()
     {
-        // пока так, потом на OnSpawn
+        transform.position += new Vector3(Random.Range(-spawnRange, spawnRange), Random.Range(-spawnRange, spawnRange), 0f);
+        transform.Rotate(Vector3.forward, Random.Range(0f, 360f));
+
         playerTag.SetName(PlayerName);
     }
 

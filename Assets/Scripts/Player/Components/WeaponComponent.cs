@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using Unity.Netcode;
 using UnityEngine;
 
-public class WeaponComponent : MonoBehaviour
+public class WeaponComponent : NetworkBehaviour
 {
     public bool IsCanAim;
 
@@ -26,9 +27,9 @@ public class WeaponComponent : MonoBehaviour
 
     private void Update()
     {
-        //if (!isOwner) return;
-        if (!IsCanAim) return; 
-        
+        if (!IsOwner) return;
+
+        if (!IsCanAim) return;         
 
         if (aimJoystick.Direction.sqrMagnitude > aimJoystick.DeadZone * aimJoystick.DeadZone)
         {
@@ -52,13 +53,21 @@ public class WeaponComponent : MonoBehaviour
 
     private void Shoot()
     {
-        Transform spawnTransform = ammoSpawnPointsContainer.GetChild(nextSpawnPointIndex);
-        GameObject bullet = Instantiate(ammoPrefab, spawnTransform.position, spawnTransform.rotation);
+        SpawnBulletServerRpc();
+
         UpdateNextSpawnPoint();
 
         lastShotTime = Time.time;
 
         OnShoot.Invoke();
+    }
+
+    [ServerRpc]
+    private void SpawnBulletServerRpc()
+    { 
+        Transform spawnTransform = ammoSpawnPointsContainer.GetChild(nextSpawnPointIndex);
+        GameObject bullet = Instantiate(ammoPrefab, spawnTransform.position, spawnTransform.rotation);
+        bullet.GetComponent<NetworkObject>().Spawn();
     }
 
     private void UpdateNextSpawnPoint()

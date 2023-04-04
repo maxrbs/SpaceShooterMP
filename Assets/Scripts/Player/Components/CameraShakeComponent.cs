@@ -13,15 +13,15 @@ public class CameraShakeComponent : MonoBehaviour
 
     public void ShakeByCollect()
     {
-        camAnimator.Play("ShakeByCollect");
+        camAnimator.Play("ShakeOnCollect");
     }
 
     public void ShakeByShot()
     {
-        camAnimator.Play("ShakeByShot");
+        camAnimator.Play("ShakeOnShot");
     }
     public void ShakeByDamage()
     {
-        camAnimator.Play("ShakeByDamage");
+        camAnimator.Play("ShakeOnDamage");
     }
 }

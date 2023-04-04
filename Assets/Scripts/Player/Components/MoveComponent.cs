@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class MoveComponent : MonoBehaviour
+public class MoveComponent : NetworkBehaviour
 {
     public bool IsCanMove;
     
@@ -24,7 +25,7 @@ public class MoveComponent : MonoBehaviour
 
     private void Update()
     {
-        // if (!isOwner) return;
+        if (!IsOwner) return;
 
         if (!IsCanMove) return;
 

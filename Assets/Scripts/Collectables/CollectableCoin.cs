@@ -11,7 +11,7 @@ public class CollectableCoin : CollectableBase
         {
             collector.AddCoins(1);
 
-            Destroy(gameObject);
+            DestroyObjectServerRpc();
         }
     }
 }
