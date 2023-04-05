@@ -29,8 +29,8 @@ public class HUDUpdater : NetworkBehaviour
 
     public void Awake()
     {
-        hostButton.onClick.AddListener(() => { NetworkManager.Singleton.StartHost(); });
-        clientButton.onClick.AddListener(() => { NetworkManager.Singleton.StartClient(); });
+        //hostButton.onClick.AddListener(() => { NetworkManager.Singleton.StartHost(); });
+        //clientButton.onClick.AddListener(() => { NetworkManager.Singleton.StartClient(); });
 
     }    
 
